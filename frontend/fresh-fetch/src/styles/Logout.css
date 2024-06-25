@@ -1,0 +1,12 @@
+.logout {
+    width: clamp(45px, 20vw, 140px);
+    height: clamp(28px, 5vw, 50px);
+    font-size: clamp(12px, 3vw, 20px);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    border: 1px solid var(--primary-black);
+    margin-left: 10px;
+    margin-top: -20px;
+}

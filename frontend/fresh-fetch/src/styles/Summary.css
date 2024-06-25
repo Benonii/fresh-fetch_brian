@@ -1,0 +1,77 @@
+:root {
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;
+    --primary-green: #426B1F;
+
+    --summary-bg-color: #FAFAF5; /* background for the summary page */
+    --border-color: #E6E6E6;
+
+
+    --font-family-base: 'Inter', Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    --font-size-large: clamp(20px, 2vw + 1rem, 70px);
+    --font-size-samll: clamp(12px, 2vw + .2rem, 22px);
+    --font-size-medium: clamp(14px, 2vw + .2rem, 17px);
+    --font-size-extra-small: clamp(9px, 1vw + .5rem, 13px);
+
+    --font-weight-bold: 700;
+}
+
+
+/* The order summary
+  ============================================ */
+    .summary {
+        margin-inline: 9vw;
+        max-width: 85%;
+        border: 2px solid var(--border-color);
+        border-radius: 20px;
+        background-color: var(--summary-bg-color);
+    }
+
+    .summary h2, .summary p {
+        margin-left: 12px;
+    }
+
+    .summary-grid {
+        display: grid;
+        column-gap: 45%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bold {
+        font-weight: var(--font-weight-bold);
+    }
+
+    .summary-grid p {
+        font-family: var(--font-family-base);
+        margin-top: 0;
+        font-size: var(--font-size-samll);
+    }
+
+    .pay-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pay-btn button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-green);
+        color: var(--primary-white);
+        border: none;
+        border-radius: 4px;
+        width: clamp(240px, 95%, 700px);
+        max-height: 60px;
+        padding: 15px;
+        margin-bottom: 15px;
+        margin-top: 60px;
+        font-size: var(--font-size-medium);
+        text-align: left;
+        font-family: var(--font-family-base);
+    }
+
+    .pay-btn button img {
+        width: clamp(30px, 15%, 70px);
+    }
+  /* ======================================================== */

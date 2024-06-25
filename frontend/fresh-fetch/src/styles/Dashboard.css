@@ -1,0 +1,70 @@
+:root {
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;
+    --primary-orange: #F2790A;
+    --primary-green: #426B1F;
+
+    --order-background: #FAFAF5;
+    --border-color: #E6E6E6;
+
+
+    --font-family-base: 'Inter', Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-size-large: clamp(20px, 2vw + 1rem, 70px);
+    --font-weight-regular: 400;
+}
+
+/* A different colored common header for the vendors */
+.vendor-header h1 {
+    color: var(--primary-orange);
+}
+
+/* Header unique to the vendor's dashboard */
+.vendor-header, .products-header {
+    margin-inline: 9vw;
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-regular);
+}
+
+.products-header-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 9vw;;
+}
+
+.products-header-container .new-btn {
+    margin-top: 13px;
+    width: var(--button-width);
+    height: var(--button-height);
+    font-size:var(--button-font-size);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-orange);
+    color: var(--primary-white);
+}
+
+/* Container for all the orders */
+.all-orders {
+    margin-inline: 4vw;
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 30px);
+    grid-template-columns: 1fr;
+    margin-bottom: 60px;
+}
+
+/* Container for all products */
+
+.vendor-products .no-products {
+    text-align: center;
+    font-size: var(--font-size-medium);
+}
+.vendor-products {
+    margin-inline: 5vw;
+    margin-bottom: 60px;
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+    gap: 5vw;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}

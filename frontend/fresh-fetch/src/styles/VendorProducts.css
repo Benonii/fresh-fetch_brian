@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ojuju:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ojuju:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+    --font-family-base: 'Inter', Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+
+    --primary-green: #426B1F;
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;
+
+
+    --vendor-color: #6D6D6D;
+    --dark-gray: #5C5959;
+    --light-gray: #6D6D6D;
+    --product-background: #FAFAF5;
+    --border-color: #E6E6E6;
+}
+
+/* product objects that haven't been ordered and are not in the basket
+  ================================================ */
+
+    .product {
+        justify-self: center;
+        background-color: var(--product-background);
+        max-width: 100%;
+        border: 2px solid var(--border-color);
+        border-radius: 20px; 
+    }
+
+    .product img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-bottom: 7px;
+    }
+
+    .product .product-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .product .product-info .product-details {
+        margin: 0 0 5px 5px;
+    }
+
+    .product h3 {
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-medium);
+        margin-top: 0;
+    }
+
+    .product .price-per-pound {
+        color: var(--primary-green);
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-medium);
+        font-weight: var(--font-weight-bold);
+        margin-top: -15px;
+    }
+
+    .product .available-quantity {
+        font-family: var(--font-family-base);
+        font-weight: var(--font-weight-bold);
+        font-size: 80%;
+    }
+
+    .quantity-input-container {
+        /* display: flex;
+        flex-flow: column wrap; */
+        align-items: center;
+        width: 110px;
+        height: 45%;
+    }
+
+    .quantity-input-container label {
+
+        font-family: var(--font-family-base);
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-small);
+    }
+
+    .quantity-input-container input {
+        width: 35px;
+        margin-bottom: 15px;
+    }
+
+    .quantity-input-container .enter-quantity-btn {
+        background-color: var(--primary-green);
+        color: var(--primary-white);
+        width: 90%;
+        height: 30px;
+        font-size: 80%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .product .product-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 7px;
+        margin-right: 10px;
+    }
+
+    .product .product-btns button {
+        width: 105%;
+        height: 75%;
+        font-size: 80%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .product .product-btns .change-quantity-btn {
+        background-color: var(--primary-white);
+        color: var(--dark-gray);
+        border: 1px solid var(--primary-black);
+    }
+
+    .product .product-btns .remove-product {
+        background-color: var(--primary-red);
+        color: var(--primary-white);
+        margin-bottom: 10px;
+    }
+  /*=================================================*/

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ojuju:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ojuju:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+    --pending-color: #6D6D6D;
+    --dark-gray: #5C5959;
+    --light-gray: #6D6D6D;
+    --order-background: #FAFAF5;
+    --border-color: #E6E6E6;
+    --primary-red: #C30F0F;
+    --primary-green: #426B1F;
+    --primary-blue: #1281C0;
+
+    /* Colors for the statuses of the orders after they are sent */
+    --status-pending: #F2790A;
+    --status-confirmed: var(--primary-green);
+    --status-canceled: var(--primary-red);
+
+
+    --font-family-base: 'Inter', Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-size-large: clamp(20px, 2vw + 1rem, 70px);
+    --font-size-samll: clamp(12px, 2vw + .2rem, 22px);
+    --font-size-medium: clamp(13px, 2vw + .2rem, 17px);
+    --font-size-extra-small: clamp(9px, 1vw + .5rem, 13px);
+}
+
+/* Orders that are already sent are waiting to be fulfilled
+  ==============================================*/
+    .pending-order {
+        position: relative;
+        display: flex;
+        line-height: .7;
+        justify-self: center;
+        background-color: var(--order-background);
+        width: clamp(152px, 95%, 950px);
+        max-height: clamp(115px, 27vw, 150px);
+        border: 2px solid var(--border-color);
+        border-radius: 20px; 
+    }
+
+    .pending-order img {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        max-width: 33%;
+        height: 100%;
+        margin-right: 7px;
+    }
+
+    .pending-order h3 {
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-small);
+        margin-top: 5px;
+    }
+
+    .pending-order .price {
+        color: var(--primary-green);
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-extra-small);
+        font-weight: var(--font-weight-bold);
+        margin-top: -7px;
+    }
+
+    .pending-order .vendor {
+        color: var(--light-gray);
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-extra-small);
+    }
+
+    .pending-order .pending {
+        color: var(--light-gray);
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-extra-small)
+    }
+
+    .pending-order .order-btns {
+        display: flex;
+        justify-content: left;
+        gap: 7px;
+        margin-left: 5px;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .pending-order .order-btns button {
+        display: inline;
+        width: clamp(70px, 20vw, 140px);
+        height: clamp(30px, 5vw, 50px);
+        font-size: clamp(10px, 3vw, 20px);
+        border: none;
+        border-radius: 5px;
+    }
+
+    .pending-order .order-btns .confirm-btn {
+        background-color: var(--primary-blue);
+        color: var(--primary-white);
+    }
+
+    .pending-order .order-btns .cancel-btn {
+        background-color: var(--primary-red);
+        color: var(--primary-white);
+        border: none;
+    }
+
+    .pending-order .status {
+        right: 0;
+        position: absolute;
+        color: var(--status-pending);
+        font-size:var(--font-size-medium);
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+
+    .pending-order .status .Completed {
+        color: var(--primary-green);
+    }
+    
+    .pending-order .status .En-route {
+        color: var(--primary-blue);
+    }
+    
+    .pending-order .status .Pending {
+        color: var(--primary-orange)
+    }
+    
+    .pending-order .status .Cancelled {
+        color: var(--primary-red);
+    }
+  /*================================================*/

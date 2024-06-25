@@ -1,0 +1,97 @@
+:root {
+    --font-family-title: Newsreader, Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-family-base: 'Inter', Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    --font-size-large: clamp(20px, 2vw + 1rem, 70px);
+    --font-size-medium: clamp(14px, 2vw + .2rem, 17px);
+    --font-size-small: clamp(12px, 2vw + .2rem, 22px);
+
+
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+
+    --primary-green: #426B1F;
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;  
+
+    --border-color: #E6E6E6;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-medium);
+    line-height: 1.8;
+}
+
+.signup {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container{
+    width: clamp(280px, 85%, 700px);
+    margin: 60px;
+    margin-inline: 7vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.signup-container .signup-header, .signup-header3 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-large);
+}
+
+.signup-container .signup-header3 {
+    font-weight: var(--font-weight-regular);
+}
+
+.signup-container .input-container {
+    display: grid;
+    margin-left: 15px;
+    line-height: 3;
+}
+
+.signup-container input {
+    margin-left: 20px;
+    width: 70%;
+    height: 25px;
+}
+
+.signup-container label {
+    margin-left: 20px;
+    font-weight: var(--font-weight-bold);
+}
+
+.signup-container 
+
+.green {
+    color: var(--primary-green);
+    text-decoration: underline;
+}
+
+.small {
+    font-size: var(--font-size-small);
+    text-align: center;
+}
+
+.signup-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.continue {
+    width: clamp(80px, 27%, 150px);
+    height: 40px;
+    color: var(--primary-white);
+    background-color: var(--primary-black);
+    border: none;
+    border-radius: 5px;
+    margin: 30px auto;
+    font-size: var(--font-size-medium);
+}
