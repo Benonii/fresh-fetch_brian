@@ -27,7 +27,7 @@ export default function VendorProduct({ product, changeQuantity, removeProduct }
             <div className="quantity-input-container">
             <label htmlFor="quantity-input">Quantity: </label>
                 <input type="text" name='quantity-input' id='quantity-input'
-                       placeholder="1lb" onChange={handleChangeQuantity} />
+                       placeholder="1kg" onChange={handleChangeQuantity} />
                 <br />
                 <button className="enter-quantity-btn"
                         onClick={() => {
@@ -50,8 +50,8 @@ export default function VendorProduct({ product, changeQuantity, removeProduct }
             <div className="product-info">
                 <div className="product-details">
                     <h3 className="prodice-name">{product.name}</h3>
-                    <p className="price-per-pound">${product.pricePerPound} / lb</p>
-                    <p className="available-quantity">Available quantity: {product.quantity}lbs</p>
+                    <p className="price-per-pound">${product.pricePerPound} / kg</p>
+                    <p className="available-quantity">Available quantity: {product.quantity}kgs</p>
                 </div>
 
                 {quantityModal ? quantityInput : (

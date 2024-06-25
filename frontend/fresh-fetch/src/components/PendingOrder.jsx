@@ -17,7 +17,7 @@ export default function PendingOrder({ order, cancelOrder, confirmOrder }) {
             <div className="order-details">
                 <h3 className="order-name">{order.name}</h3>
                 <p className="price">Price: ${order.price}</p>
-                <p className="quantity">Quantity: {order.quantity} lbs</p>
+                <p className="quantity">Quantity: {order.quantity} kgs</p>
                 <p className="vendor">Vendor: {order.vendor}</p>
                 
                 <div className="order-btns">

@@ -42,7 +42,7 @@ describe('<Produce />', () => {
             </BrowserRouter>
         );
 
-        expect(screen.getByText("$5.99 / lb")).toBeInTheDocument();
+        expect(screen.getByText("$5.99 / kg")).toBeInTheDocument();
     });
 
     it('Contains the Vendor of the produce', () => {

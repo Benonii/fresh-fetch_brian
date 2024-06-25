@@ -107,7 +107,7 @@
 
     .produce .produce-btns button {
         width: 105%;
-        height: 75%;
+        height: clamp(40px, 8vw, 50px);
         font-size: 80%;
         border: none;
         border-radius: 5px;

@@ -60,7 +60,7 @@ describe('<VendorOrder />', () => {
             <VendorOrder order={enRouteOrder} />
         </BrowserRouter>);
 
-        expect(screen.getByText('Quantity: 5lb')).toBeInTheDocument();
+        expect(screen.getByText('Quantity: 5kg')).toBeInTheDocument();
     });
 
     it('Displays the right status' , () => {

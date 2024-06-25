@@ -15,7 +15,7 @@ export default function Order({ order, removeOrder, handleChange, handleOrder })
             
             <div className="order-details">
                 <h3 className="order-name">{order.name}</h3>
-                <p className="price-per-pound">${order.pricePerPound} / lb</p>
+                <p className="price-per-pound">${order.pricePerPound} / kg</p>
                 <p className="vendor">Vendor: {order.vendor}</p>
 
                 <div className="order-btns">
@@ -30,7 +30,7 @@ export default function Order({ order, removeOrder, handleChange, handleOrder })
                 produce that they want */}
             <div className="quantity-input">
                 <span id="hiddenLabel">Enter the desired quantity:</span>
-                <input type="text" placeholder="1lb"
+                <input type="text" placeholder="1kg"
                        default="1lb" name="quantity input" aria-labelledby='hiddenLabel'
                        onChange={(e) => handleChange(e, order.id)} />
                 <img src={pencilImg} alt="A pencil" />

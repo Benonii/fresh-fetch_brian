@@ -52,7 +52,7 @@ describe('<PendingOrder />', () => {
     it('Contains the qunatity of the produce', () => {
         render(<PendingOrder order={testOrder} />);
 
-        expect(screen.getByText('Quantity: 1 lbs')).toBeInTheDocument();
+        expect(screen.getByText('Quantity: 1 kgs')).toBeInTheDocument();
     });
 
     it('Contains the correct delivery status', () => {

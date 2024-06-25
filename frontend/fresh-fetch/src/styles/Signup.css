@@ -57,18 +57,32 @@ body {
     line-height: 3;
 }
 
-.signup-container input {
+input[type="text"], input[type="password"] {
     margin-left: 20px;
     width: 70%;
     height: 25px;
 }
 
+.signup-container .radio-container {
+    /* row-gap: 60px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.signup-container .radio-container label {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    margin-left: 5px;
+}
+
+
 .signup-container label {
     margin-left: 20px;
     font-weight: var(--font-weight-bold);
 }
-
-.signup-container 
 
 .green {
     color: var(--primary-green);

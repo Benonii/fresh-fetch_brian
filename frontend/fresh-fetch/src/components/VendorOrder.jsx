@@ -13,7 +13,7 @@ export default function VendorOrder({ order, handleFulfill }) {
             <div className="order-details">
                 <h3 className="order-name">{order.name}</h3>
                 <p className="price">{order.price}</p>
-                <p className="quantity">Quantity: {order.quantity}lb</p>
+                <p className="quantity">Quantity: {order.quantity}kg</p>
             </div>
 
             {/* This status will be either pending, confirmed or cancelled

@@ -56,6 +56,20 @@ export default function Signup() {
 
                         <label htmlFor="confirm-passwprd">Confirm password</label>
                         <input type="password" name="confirm-password" id="confirm-password" />
+
+                        <div className="radio-container">
+                            <div className="buyer">
+                                <input type="radio" name="user-type" id="buyer" />
+                                <label htmlFor="buyer">I want to buy groceires</label>
+
+                            </div>
+
+                            <div className="vendor">
+                                <input type="radio" name="user-type" id="vendor" />
+                                <label htmlFor="vendor">I want to sell groceries</label>
+                            </div>
+                        </div>
+
                     </div>
 
                     <p className="small">Already have an account? <span className="green" onClick={goToLogin}>Login</span> instead.

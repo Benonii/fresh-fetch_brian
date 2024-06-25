@@ -28,7 +28,7 @@ export default function Dashboard() {
                 id: "1",
                 productId: "1",
                 name: "Heirloom tomato",
-                pricePerPound: "$5.99 / lb",
+                pricePerPound: "$5.99 / kg",
                 vendor: "Wall-Mart",
                 quantity: 5,
                 price: "$5.99",

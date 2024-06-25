@@ -22,7 +22,6 @@ export default function Produce({ product, addToBasket }) {
         const pricePerPound = product.pricePerPound;
         // product.quantity = Number(quantity);
         const price = pricePerPound * Number(quantity);
-        console.log('PpP: ', pricePerPound, 'quanitity:', 'price:', price)
         navigate('/summary', { state: { orders: [product] } });
     }
 
@@ -35,7 +34,7 @@ export default function Produce({ product, addToBasket }) {
             <div className="quantity-input-container">
             <label htmlFor="quantity-input">Quantity: </label>
                 <input type="text" name='quantity-input' id='quantity-input'
-                       placeholder="1lb" onChange={handleChangeQuantity} />
+                       placeholder="1kg" onChange={handleChangeQuantity} />
                 <br />
                 <button className="enter-quantity-btn"
                         onClick={makeOrder}
@@ -55,7 +54,7 @@ export default function Produce({ product, addToBasket }) {
             <div className="produce-info">
                 <div className="produce-details">
                     <h3 className="prodice-name">{product.name}</h3>
-                    <p className="price-per-pound">${product.pricePerPound} / lb</p>
+                    <p className="price-per-pound">${product.pricePerPound} / kg</p>
                     <p className="vendor">Vendor: {product.vendor}</p>
                 </div>
 
