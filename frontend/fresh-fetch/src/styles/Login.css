@@ -61,7 +61,7 @@ body {
 .login-container input {
     margin: auto;
     width: 70%;
-    height: 30px;
+    height: 35px;
     border: 1px solid var(--primary-black);
     border-radius: 10px;
 }
