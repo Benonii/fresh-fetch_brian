@@ -66,6 +66,15 @@ body {
     border-radius: 10px;
 }
 
+.login-error-message {
+    /* margin-top: -20px; */
+    line-height: 1.2;
+    width: 70%;
+    text-align: center;
+    color: var(--primary-red);
+    font-size: var(--font-size-extra-small);
+}
+
 .login-container label {
     font-weight: var(--font-weight-bold);
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router";
-// import { useLocation } from "react-router";
+
 
 import Header from "../components/Header";
 
@@ -24,8 +24,6 @@ export default function Signup() {
     const [ message, setMessage ] = useState("");
 
     const navigate = useNavigate();
-    // const location = useLocation();
-    // const state = location.state;
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -34,11 +32,6 @@ export default function Signup() {
         const newErrors = validateInput(name, value);
         setErrors(newErrors);
     }
-
-    // function handleRadioChange(e) {
-    //     const value = e.target.value;
-    //     setUserType(value);
-    // }
 
     function goHome () {
         navigate('/produce');
@@ -195,11 +188,9 @@ export default function Signup() {
 
         const hasErrors = Object.keys(newErrors).length > 0;
         if (hasErrors) {
-            setMessage(<p class="submit-error">Please fix all form errors before submitting</p>)
+            setMessage(<p className="submit-error">Please fix all form errors before submitting</p>)
             return;
         }
-
-        console.log("NO errors!");
 
         if (formData.userType === "buyer") {
             goHome();
