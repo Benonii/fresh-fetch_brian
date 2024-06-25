@@ -81,6 +81,12 @@ export default function ProducePage() {
         navigate('/signup');
     }
 
+    const handleMakeOrder = (id) => {
+        const product = products.filter(product => product.id == id)
+        user ? navigate('/summary', { state: { orders: [product] } })
+             : goToLogin();
+    }
+
     const addToBasket = (produce) => {
         setUser((prevState) => ({
             ...prevState,
@@ -145,7 +151,8 @@ export default function ProducePage() {
                 <div className="produces">
                     {products.map((product) => (
                         <Produce key={product.id} product={product}
-                                 addToBasket={addToBasket} />
+                                 handleMakeOrder={handleMakeOrder}
+                                 addToBasket={user ? addToBasket : goToLogin} />
                     ))}
                 </div>
             </main>

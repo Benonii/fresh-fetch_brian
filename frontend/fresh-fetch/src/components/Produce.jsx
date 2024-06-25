@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 
 import '../styles/Produce.css';
 
-export default function Produce({ product, addToBasket }) {
+export default function Produce({ product, addToBasket, handleMakeOrder }) {
     // This component is for the individual produce items that will be displayed
     // on the produce page
 
@@ -18,12 +18,9 @@ export default function Produce({ product, addToBasket }) {
         setQuantity("");
     };
 
-    const makeOrder = () => {
-        const pricePerPound = product.pricePerPound;
-        // product.quantity = Number(quantity);
-        const price = pricePerPound * Number(quantity);
-        navigate('/summary', { state: { orders: [product] } });
-    }
+    // const makeOrder = () => {
+    //     handleMakeOrder(product.id)
+    // }
 
     function handleChangeQuantity(e) {
         setQuantity(e.target.value);
@@ -37,7 +34,7 @@ export default function Produce({ product, addToBasket }) {
                        placeholder="1kg" onChange={handleChangeQuantity} />
                 <br />
                 <button className="enter-quantity-btn"
-                        onClick={makeOrder}
+                        onClick={() => {handleMakeOrder(product.id)}}
                         disabled={quantity === ""}>Continue</button>
             </div>
         </>
@@ -65,7 +62,7 @@ export default function Produce({ product, addToBasket }) {
                         </button>
                         <button className="add-to-basket"
                             onClick={() => addToBasket(product)}>
-                        Add to Basket
+                        Add to basket
                     </button>
                     </div>
                     )}
