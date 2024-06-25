@@ -57,10 +57,12 @@ body {
     line-height: 3;
 }
 
-input[type="text"], input[type="password"] {
+.signup-container input[type="text"], .signup-container input[type="password"] {
     margin-left: 20px;
     width: 70%;
-    height: 25px;
+    height: 30px;
+    border: 1px solid var(--primary-black);
+    border-radius: 10px;
 }
 
 .signup-container .radio-container {
