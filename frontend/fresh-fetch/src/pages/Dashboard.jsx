@@ -123,7 +123,7 @@ export default function Dashboard() {
     return (
         <main>
             <div className="vendor-header">
-                <Header />
+                <Header isVendor={true} />
             </div>
 
             <h2 className="vendor-header">Orders</h2>
