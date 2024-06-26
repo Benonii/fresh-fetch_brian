@@ -24,14 +24,8 @@ export default function ProducePage() {
     // This component displays all the available produces to the user
     
     // User state is empty to represent users that are not logged in
-    const devUser = {
-        userId: "1",
-        firstName: "Benoni",
-        lastName: "Esckinder",
-        basket: [],
-        profilePic: profilePic,
-    };
-    const [ user, setUser ] = useState(devUser);
+
+    const [ user, setUser ] = useState(null);
 
     const [ products, setProducts ] = useState([
         {
@@ -129,7 +123,7 @@ export default function ProducePage() {
 
             {user !== null && (
                 <div className="profile-container" aria-label="User Profile">
-                <Profile profilePic={devUser.profilePic} />
+                <Profile profilePic={profilePic} />
                 <div className="user-info">
                     <h2 className="user-header">Welcome Benoni</h2>
                     <Logout handleLogout={handleLogout}/>

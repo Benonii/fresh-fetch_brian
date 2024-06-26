@@ -105,7 +105,7 @@ export default function Signup() {
                 break;
                 case 'phone_number':
                     let phoneRegex = /^(?:\+?(\d{1,3}))?[-. (]*(\d{1,4})[-. )]*(\d{1,4})[-. ]*(\d{1,9})(?: *x(\d+))?$/;
-                    if (!phoneRegex.test(value)) {
+                    if (!phoneRegex.test(value) || value.length < 10) {
                         newErrors.phone = (<p className='input-error'>
                             Please enter a valid phone number (Example: +123456789012)
                         </p>)
@@ -144,7 +144,7 @@ export default function Signup() {
                     break;
                 case 'password2':
                     const passwd = formData.password1;
-                    if(!value) {
+                    if(value !== passwd) {
                         newErrors.password2 = (<p className='input-error'>
                             passwords do not match
                         </p>)
