@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useState } from "react";
 
 import Header from "../components/Header";
@@ -6,15 +6,17 @@ import Header from "../components/Header";
 import "../styles/Login.css";
 
 export default function Login() {
+    const location = useLocation();
+    const state = location.state;
 
     const [ formData, setFormData ] = useState({
         email: "",
         password: "",
     });
 
-    const [ userId, setUserId ] = useState({
-        userId: "",
-    })
+    const [ userId, setUserId ] = useState("");
+
+    const [ user, setUser ] = useState({});
 
     const [ errors, setErrors ] = useState({});
     const [ message, setMessage ] = useState("");
@@ -34,11 +36,11 @@ export default function Login() {
     };
 
     function goHome () {
-        navigate('/');
+        navigate('/', { state: { user: user }});
     }
 
     function goToDashboard () {
-        navigate('/dashboard');
+        navigate('/dashboard', { state: { user: user }});
     }
 
     function validateInput(name, value) {
@@ -125,8 +127,7 @@ export default function Login() {
             
         setMessage(null);
         try {
-            const jsonData = JSON.stringify(formData);
-            const response = await fetch('http://127.0.0.1:8000/api-auth/users/login/', {
+            const responseToken = await fetch('http://127.0.0.1:8000/api-auth/users/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -134,17 +135,34 @@ export default function Login() {
                 body: JSON.stringify(formData)
             });
 
-            if (response.ok) {
-                const responseJSON = await response.json();
-                if (responseJSON.length !== 0) {
+            if (responseToken.ok) {
+                const returnedToken = await responseToken.json();
+                console.log('Token:', returnedToken);
+                if (responseToken.length !== 0) {
                     console.log("Form submitted successfully")
-                    setUserId(responseJSON.key);
-                    goHome();
+                    setUserId(returnedToken.key);
                 }
+            } else {
+                console.error("I am not ok");
+            }
+
+            const responseUser = await fetch('http://127.0.0.1:8000/api-auth/users/user', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${userId}`,
+                },
+            });
+
+            if (responseUser.ok) {
+                console.log("Getting user...");
+                const returnedUser = await responseUser.json();
+                setUser(returnedUser);
             }
         } catch(error) {
             console.error('Failed to submit form:', error)
         }
+
+        user.is_vendor ? goToDashboard(): goHome()
     }
     return (
         <>

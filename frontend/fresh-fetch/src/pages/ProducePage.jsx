@@ -1,6 +1,6 @@
 // React related imports
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 // Components
 import Header from "../components/Header";
@@ -24,13 +24,15 @@ export default function ProducePage() {
     // This component displays all the available produces to the user
     
     // User state is empty to represent users that are not logged in
+    const location = useLocation();
+    const state = location.state;
 
-    const [ user, setUser ] = useState(null);
+    const [ user, setUser ] = useState(state.user);
 
     const [ products, setProducts ] = useState([
         {
             id: "1",
-            name: "Heirloom Tomato",
+            title: "Heirloom Tomato",
             pricePerPound: 5.99,
             vendor: "Wall-Mart",
             quantity: 1,
@@ -100,7 +102,7 @@ export default function ProducePage() {
     const conditionalComponent = user ? (
         <div className="basket-container">
             <button className="basket-btn" onClick={goToBasket}>
-                <p>Basket({user.basket.length})</p>
+                <p>Basket(0)</p>
                 <img src={basketImg} alt="" />
             </button>
         </div> 

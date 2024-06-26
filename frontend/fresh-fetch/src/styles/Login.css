@@ -62,6 +62,7 @@ body {
     margin: auto;
     width: 70%;
     height: 35px;
+    padding-left: 10px;
     border: 1px solid var(--primary-black);
     border-radius: 10px;
 }
