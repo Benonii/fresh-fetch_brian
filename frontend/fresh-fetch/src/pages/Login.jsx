@@ -12,6 +12,10 @@ export default function Login() {
         password: "",
     });
 
+    const [ userId, setUserId ] = useState({
+        userId: "",
+    })
+
     const [ errors, setErrors ] = useState({});
     const [ message, setMessage ] = useState("");
     
@@ -66,7 +70,6 @@ export default function Login() {
                 break;
                 case 'password':
                     const password = value;
-                    // const passwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
                     if (!value || value === "") {
                         newErrors.password = (<p className='input-error'>
                             Password cannot be empty
@@ -118,13 +121,31 @@ export default function Login() {
         if (hasErrors) {
             setMessage(<p className="submit-error">Please fix all form errors before submitting</p>)
             return;
-        } else {
-            setMessage(null);
-            goHome();
         }
+            
+        setMessage(null);
+        try {
+            const jsonData = JSON.stringify(formData);
+            const response = await fetch('http://127.0.0.1:8000/api-auth/users/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
 
+            if (response.ok) {
+                const responseJSON = await response.json();
+                if (responseJSON.length !== 0) {
+                    console.log("Form submitted successfully")
+                    setUserId(responseJSON.key);
+                    goHome();
+                }
+            }
+        } catch(error) {
+            console.error('Failed to submit form:', error)
+        }
     }
-
     return (
         <>
             <div className="header-container">

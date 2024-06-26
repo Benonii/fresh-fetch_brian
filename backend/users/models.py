@@ -16,6 +16,14 @@ class User(AbstractUser):
     username = None
     date_joined = models.DateTimeField(auto_now_add=True)
     is_vendor = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images', default='images/avatar.jpg')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'password']
+
+    def __str__(self):
+        """
+        Model string representation
+        """
+
+        return self.email

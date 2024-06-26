@@ -22,6 +22,23 @@ export default function VendorProduct({ product, changeQuantity, removeProduct }
         setQuantity(e.target.value);
     }
 
+    const continueOrCancel = (
+        quantity === "" ? (
+            <button className="cancel-quantity-btn"
+                    onClick={toggleQuantityModal}>
+                Cancel
+            </button>
+        ) : (
+            <button className="enter-quantity-btn"
+                        onClick={() => {
+                            changeQuantity(Number(quantity), product.id);
+                            toggleQuantityModal();
+                        }}>
+                    Continue
+            </button>
+        )
+    )
+
     const quantityInput = (
         <>
             <div className="quantity-input-container">
@@ -29,12 +46,7 @@ export default function VendorProduct({ product, changeQuantity, removeProduct }
                 <input type="text" name='quantity-input' id='quantity-input'
                        placeholder="1kg" onChange={handleChangeQuantity} />
                 <br />
-                <button className="enter-quantity-btn"
-                        onClick={() => {
-                            changeQuantity(Number(quantity), product.id);
-                            toggleQuantityModal();
-                        }}
-                        disabled={quantity === ""}>Continue</button>
+                {continueOrCancel}
             </div>
         </>
     )

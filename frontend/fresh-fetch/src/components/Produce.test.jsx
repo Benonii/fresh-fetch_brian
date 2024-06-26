@@ -63,7 +63,7 @@ describe('<Produce />', () => {
         );
 
         expect(screen.getByRole('button', { name: 'Order now'})).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: 'Add to Basket'})).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Add to basket'})).toBeInTheDocument();
     })
 
     it('Clicking the Add to Basket calls the addToBasket function', () => {
@@ -73,7 +73,7 @@ describe('<Produce />', () => {
                 <Produce product={testProduce} addToBasket={mockAddToBasket} />
             </BrowserRouter>);
 
-        const addToBasketBtn = screen.getByRole('button', { name: 'Add to Basket'});
+        const addToBasketBtn = screen.getByRole('button', { name: 'Add to basket'});
         userEvent.click(addToBasketBtn);
 
         expect(mockAddToBasket).toHaveBeenCalled();

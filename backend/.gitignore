@@ -1,2 +1,5 @@
 # Enviroment files
 .env
+
+# compiled Python files
+*.pyc

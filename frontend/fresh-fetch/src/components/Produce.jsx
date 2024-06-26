@@ -18,9 +18,19 @@ export default function Produce({ product, addToBasket, handleMakeOrder }) {
         setQuantity("");
     };
 
-    // const makeOrder = () => {
-    //     handleMakeOrder(product.id)
-    // }
+    const continueOrCancel = (
+        quantity === "" ? (
+            <button className="cancel-quantity-btn"
+                    onClick={toggleQuantityModal}>
+                Cancel
+            </button>
+        ) : (
+            <button className="enter-quantity-btn"
+                        onClick={() => {handleMakeOrder(product.id)}}>
+                    Continue
+            </button>
+        )
+    )
 
     function handleChangeQuantity(e) {
         setQuantity(e.target.value);
@@ -33,9 +43,7 @@ export default function Produce({ product, addToBasket, handleMakeOrder }) {
                 <input type="text" name='quantity-input' id='quantity-input'
                        placeholder="1kg" onChange={handleChangeQuantity} />
                 <br />
-                <button className="enter-quantity-btn"
-                        onClick={() => {handleMakeOrder(product.id)}}
-                        disabled={quantity === ""}>Continue</button>
+               {continueOrCancel}
             </div>
         </>
     )
