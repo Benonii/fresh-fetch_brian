@@ -66,5 +66,5 @@
     display: grid;
     justify-content: center;
     gap: 5vw;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, 300px);
 }

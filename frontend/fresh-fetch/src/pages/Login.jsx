@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 
 import Header from "../components/Header";
@@ -6,9 +6,6 @@ import Header from "../components/Header";
 import "../styles/Login.css";
 
 export default function Login() {
-    const location = useLocation();
-    const state = location.state;
-
     const [ formData, setFormData ] = useState({
         email: "",
         password: "",
@@ -67,7 +64,6 @@ export default function Login() {
                 }
                 break;
                 case 'password':
-                    const password = value;
                     if (!value || value === "") {
                         newErrors.password = (<p className='input-error'>
                             Password cannot be empty

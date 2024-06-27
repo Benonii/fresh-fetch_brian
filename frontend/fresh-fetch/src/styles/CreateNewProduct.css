@@ -1,0 +1,66 @@
+.new-product-form {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;;
+  }
+  
+  .new-product-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .form-popup {
+
+    width: clamp(260px, 60%, 600px);
+    background-color: var(--produce-background);
+    border: 2px solid var(--border-color);
+    border-radius: 20px; 
+    top: 40px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-popup label {
+    margin-bottom: 10px;
+  }
+  
+  .form-popup input[type="text"],
+  .form-popup input[type="number"],
+  .form-popup input[type="file"] {
+    padding: 8px;
+    margin: 8px;
+  }
+
+  .form-popup #price, .form-popup #stock {
+    width: 60px;
+  }
+  
+  .form-popup button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-popup .cancel-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-popup button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

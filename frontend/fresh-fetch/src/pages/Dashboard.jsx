@@ -2,14 +2,14 @@ import { useState } from "react";
 
 import Header from "../components/Header";
 import VendorOrder from "../components/VendorOrder";
-import VendorProducts from "../components/VendorProducts"
+import VendorProducts from "../components/VendorProducts";
+import CreateNewProduct from "../components/CreateNewProduct";
 
 import tomatoImg from "../images/tomato.jpg";
 import onionImg from "../images/onion.jpg";
 import gingerImg from "../images/ginger.jpg";
 
 import "../styles/Dashboard.css";
-import { prettyDOM } from "@testing-library/react";
 
 export default function Dashboard() {
     const statuses = {
@@ -92,6 +92,16 @@ export default function Dashboard() {
         ]
     });
 
+    const [ modal, setModal ] = useState(false);
+    function toggleModal() {
+        setModal(prevModal => !prevModal);
+    }
+
+    function handleNewProduct(porduct) {
+        // call create product api 
+        console.log(porduct)
+    }
+
     function handleFulfill(id) {
         const newOrders = user.orders.map(order => {
             if (order.id === id) {
@@ -111,7 +121,7 @@ export default function Dashboard() {
 
     function changeQuantity(value, id) {
         const newProducts = user.products.map(product => {
-            if (product.id == id) {
+            if (product.id === id) {
                 return { ...product, quantity: value };
             } else {
                 return product;
@@ -147,9 +157,14 @@ export default function Dashboard() {
                 <div className="products-header-container">
                 <h2 className="products-header">My products</h2>
 
-                    <button className="new-btn">+ New</button>
+                    <button className="new-btn"
+                            toggleModal={toggleModal}
+                            onClick={toggleModal}
+                            createProduct={handleNewProduct}>+ New</button>
                 </div>
                 <hr />
+
+                {modal && <CreateNewProduct createProduct={handleNewProduct}/>}
 
                 <div className="vendor-products">
                     {user.products.length === 0 ? (
