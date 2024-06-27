@@ -27,14 +27,54 @@ export default function ProducePage() {
     const location = useLocation();
     const state = location.state;
 
-    const [ user, setUser ] = useState(state.user);
+    // console.log("User:", state.user)
 
-    const [ products, setProducts ] = useState([
+    const [ user, setUser ] = useState(state ? {
+        userId: state.user.id,
+        firstName: state.user.first_name,
+        lastName: state.user.last_name,
+        basket: [],
+        profilePic: state.user.image,
+    } : null);
+
+    const products = getProducts();
+    const [ displayProducts, setDisplayProducts ] = useState(products.length > 0 ? [
+        {
+            id: products[0]?.id,
+            name: products[0]?.title,
+            pricePerPound: products[0]?.price,
+            vendor: products[0]?.description,
+            quantity: 1,
+            price: 0,
+            status: null,
+            pic: tomatoImg,
+        },
+        {
+            id: "2",
+            name: "Organic Ginger",
+            pricePerPound: 12.99,
+            vendor: "Kmart",
+            quantity: 1,
+            price: 0,
+            status: null,
+            pic: gingerImg,
+        },
+        {
+            id: "3",
+            name: "Sweet Onion",
+            pricePerPound: 2.99,
+            vendor: "target",
+            quantity: 1,
+            price: 0,
+            status: null,
+            pic: onionImg,
+        }
+    ]: [
         {
             id: "1",
-            title: "Heirloom Tomato",
-            pricePerPound: 5.99,
-            vendor: "Wall-Mart",
+            name: "Heirloom tomato",
+            pricePerPound: "5.99",
+            vendor: "Wall-mart",
             quantity: 1,
             price: 0,
             status: null,
@@ -62,7 +102,20 @@ export default function ProducePage() {
         }
     ]);
 
+    async function getProducts() {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/products', {
+            method: 'get',
+        });
 
+        let products;
+        if (response.ok) {
+            products = await response.json();
+        } else {
+            console.log("I am not okay");
+        }
+        console.log(products);
+        return products;
+    }
     const navigate = useNavigate();
 
     const goToBasket = () => {
@@ -78,7 +131,7 @@ export default function ProducePage() {
     }
 
     const handleMakeOrder = (id) => {
-        const product = products.filter(product => product.id == id)
+        const product = displayProducts.filter(product => product.id === id)
         user ? navigate('/summary', { state: { orders: [product] } })
              : goToLogin();
     }
@@ -102,7 +155,7 @@ export default function ProducePage() {
     const conditionalComponent = user ? (
         <div className="basket-container">
             <button className="basket-btn" onClick={goToBasket}>
-                <p>Basket(0)</p>
+                <p>Basket({user.basket.length})</p>
                 <img src={basketImg} alt="" />
             </button>
         </div> 
@@ -127,7 +180,7 @@ export default function ProducePage() {
                 <div className="profile-container" aria-label="User Profile">
                 <Profile profilePic={profilePic} />
                 <div className="user-info">
-                    <h2 className="user-header">Welcome Benoni</h2>
+                    <h2 className="user-header">Welcome {user?.firstName}</h2>
                     <Logout handleLogout={handleLogout}/>
                 </div>
             </div>
@@ -145,7 +198,7 @@ export default function ProducePage() {
 
                 {/* A few of the available produces */}
                 <div className="produces">
-                    {products.map((product) => (
+                    {displayProducts.map((product) => (
                         <Produce key={product.id} product={product}
                                  handleMakeOrder={handleMakeOrder}
                                  addToBasket={user ? addToBasket : goToLogin} />

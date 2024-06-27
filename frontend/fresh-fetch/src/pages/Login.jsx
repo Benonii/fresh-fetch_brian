@@ -14,10 +14,6 @@ export default function Login() {
         password: "",
     });
 
-    const [ userId, setUserId ] = useState("");
-
-    const [ user, setUser ] = useState({});
-
     const [ errors, setErrors ] = useState({});
     const [ message, setMessage ] = useState("");
     
@@ -35,11 +31,11 @@ export default function Login() {
         navigate('/signup');
     };
 
-    function goHome () {
+    function goHome (user) {
         navigate('/', { state: { user: user }});
     }
 
-    function goToDashboard () {
+    function goToDashboard (user) {
         navigate('/dashboard', { state: { user: user }});
     }
 
@@ -135,12 +131,11 @@ export default function Login() {
                 body: JSON.stringify(formData)
             });
 
+            let returnedToken
             if (responseToken.ok) {
-                const returnedToken = await responseToken.json();
-                console.log('Token:', returnedToken);
+                returnedToken = await responseToken.json();
                 if (responseToken.length !== 0) {
                     console.log("Form submitted successfully")
-                    setUserId(returnedToken.key);
                 }
             } else {
                 console.error("I am not ok");
@@ -149,21 +144,21 @@ export default function Login() {
             const responseUser = await fetch('http://127.0.0.1:8000/api-auth/users/user', {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Token ${userId}`,
+                    'Authorization': `Token ${returnedToken.key}`,
                 },
             });
 
             if (responseUser.ok) {
                 console.log("Getting user...");
                 const returnedUser = await responseUser.json();
-                setUser(returnedUser);
+                returnedUser.is_vendor ? goToDashboard(returnedUser) : goHome(returnedUser); 
+
             }
         } catch(error) {
             console.error('Failed to submit form:', error)
         }
-
-        user.is_vendor ? goToDashboard(): goHome()
     }
+
     return (
         <>
             <div className="header-container">

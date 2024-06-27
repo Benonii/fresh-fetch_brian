@@ -38,7 +38,8 @@ export default function Basket() {
                 vendor: "Wall-Mart",
                 quantity: 1,
                 price: 0,
-                status: null,
+                orderStatus: null,
+                paidStatus: false,
                 pic: tomatoImg,
             },
             {

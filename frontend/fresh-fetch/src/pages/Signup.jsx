@@ -207,6 +207,7 @@ export default function Signup() {
             console.error('Failed to submit form:', error)
         }
     }
+    console.log("Am I a vendor?:", formData.is_vendor)
 
     return (
         <>
