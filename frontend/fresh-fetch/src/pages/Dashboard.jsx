@@ -158,9 +158,8 @@ export default function Dashboard() {
                 <h2 className="products-header">My products</h2>
 
                     <button className="new-btn"
-                            toggleModal={toggleModal}
                             onClick={toggleModal}
-                            createProduct={handleNewProduct}>+ New</button>
+                        >+ New</button>
                 </div>
                 <hr />
 
