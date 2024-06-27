@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 
 import Header from "../components/Header";
 import basketImg from "../images/basket.jpg";
@@ -38,7 +38,8 @@ export default function Basket() {
                 vendor: "Wall-Mart",
                 quantity: 1,
                 price: 0,
-                status: null,
+                orderStatus: null,
+                paidStatus: false,
                 pic: tomatoImg,
             },
             {
@@ -67,10 +68,10 @@ export default function Basket() {
         profilePic: profilePic,
     });
 
-    const location = useLocation();
-    const allPending = [];
-    const pendingOrdersState = location.state;
-    let pendingOrders = pendingOrdersState ? pendingOrdersState.pendingOrders : [];
+    // const location = useLocation();
+    // const allPending = [];
+    // const pendingOrdersState = location.state;
+    // let pendingOrders = pendingOrdersState ? pendingOrdersState.pendingOrders : [];
 
     const [ madeOrders, setMadeOrders ] = useState([]);
     const [ unmadeOrders, setUnmadeOrders ] = useState(user.basket);

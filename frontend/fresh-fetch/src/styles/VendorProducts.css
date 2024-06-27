@@ -111,6 +111,7 @@
         font-size: 80%;
         border: none;
         border-radius: 5px;
+        height: clamp(40px, 8vw, 50px);
     }
 
     .product .product-btns .change-quantity-btn {

@@ -38,14 +38,6 @@ export default function Signup() {
         setErrors(newErrors);
     }
 
-    function goHome () {
-        navigate('/produce');
-    };
-
-    function goToDashboard() {
-        navigate('/dashboard');
-    }
-
     function goToLogin () {
         navigate('/login');
     };
@@ -160,6 +152,7 @@ export default function Signup() {
                     } else {
                         delete newErrors.is_vendor;
                     }
+                    break;
                 default:
                     break;
         }
@@ -207,6 +200,7 @@ export default function Signup() {
             console.error('Failed to submit form:', error)
         }
     }
+    console.log("Am I a vendor?:", formData.is_vendor)
 
     return (
         <>
